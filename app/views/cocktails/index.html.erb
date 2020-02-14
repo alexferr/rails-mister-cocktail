@@ -1,21 +1,29 @@
-<h1>Cocktails</h1>
-
-<% @cocktails.each do |cocktail| %>
-  <div class="card-product">
-  <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" />
-  <div class="card-product-infos">
-    <h2><%= link_to cocktail.name, cocktail_path(cocktail) %></h2>
-    <p>With </p>
-    <% cocktail.doses.each do |dose|  %>
-      <p > <%= dose.ingredient.name %> </p>
-    <% end %>
-  </div>
-  <div class="card-actions">
-    <%= link_to 'More info', cocktail_path(cocktail), class: "btn btn-link" %>
-    <%= link_to 'Add ingredient', new_cocktail_dose_path(cocktail), class: "btn btn-link" %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1571085812134-9aece96f1138?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80);">
+  <div class="container">
+    <h1>Cocktails</h1>
+    <p>Cockails for cocktail addicts</p>
   </div>
 </div>
-<% end %>
+
+
+<div class="card-container">
+  <% @cocktails.each do |cocktail| %>
+    <div class="card-product">
+    <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" />
+    <div class="card-product-infos">
+      <h2><%= link_to cocktail.name, cocktail_path(cocktail) %></h2>
+      <p>With </p>
+      <% cocktail.doses.each do |dose|  %>
+        <p > <%= dose.ingredient.name %> </p>
+      <% end %>
+    </div>
+    <div class="card-actions">
+      <%= link_to 'More info', cocktail_path(cocktail), class: "btn-card-actions"%>
+      <%= link_to 'Add ingredient', new_cocktail_dose_path(cocktail), class: "btn-card-actions" %>
+    </div>
+  </div>
+  <% end %>
+</div>
 
 
 
